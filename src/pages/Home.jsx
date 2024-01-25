@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import arrowleft from "./assets/arrowLeft.svg";
-import arrowRight from "./assets/arrowRight.svg";
-import "./App.css";
-import Testimony from "./components/Testimony";
+import arrowleft from "../assets/arrowLeft.svg";
+import arrowRight from "../assets/arrowRight.svg";
+import Testimony from "../components/Testimony";
+// import '../App.css'
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ModalComponent from "./components/ModalComponent";
-import person1 from './assets/person1.avif'
-import person2 from './assets/person2.avif'
-import person3 from './assets/person4.webp'
-import person4 from './assets/person3.jpg'
-import person5 from './assets/person5.jpg'
+import ModalComponent from "../components/ModalComponent";
+import person1 from '../assets/person1.avif'
+import person2 from '../assets/person2.avif'
+import person3 from '../assets/person4.webp'
+import person4 from '../assets/person3.jpg'
+import person5 from '../assets/person5.jpg'
 
 
 function Home() {
