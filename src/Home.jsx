@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import img from "./assets/heroImg.jpeg";
 import arrowleft from "./assets/arrowLeft.svg";
 import arrowRight from "./assets/arrowRight.svg";
 import "./App.css";
@@ -17,7 +16,7 @@ import person5 from './assets/person5.jpg'
 
 function Home() {
 
-  useEffect(() => { // so that 
+  useEffect(() => { 
     const handleResize = () => {
       setSlidesToShow(window.innerWidth < 768 ? 1 : 3);
     };
