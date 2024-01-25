@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 function FormStep2({ register, errors }) {
   const { city } = useParams();
-
+console.log(city)
   return (
     <div>
       <label className="block mb-6">

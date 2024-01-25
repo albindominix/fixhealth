@@ -1,7 +1,6 @@
 import React from "react";
 
 function FormStep3({ register, errors, watchAge, doctors = [] }) {
-  console.log(doctors);
   return (
     <div>
       <label className="block mb-6">
