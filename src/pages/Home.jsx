@@ -16,20 +16,6 @@ import person5 from '../assets/person5.jpg'
 
 function Home() {
 
-  useEffect(() => { 
-    const handleResize = () => {
-      setSlidesToShow(window.innerWidth < 768 ? 1 : 3);
-    };
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Remove event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []); // Empty dependency array ensures that the effect runs only once on mount
-
   const SlideArrowLeft = () => {
     return (
       <div className="bg-white w-9 h-9">
