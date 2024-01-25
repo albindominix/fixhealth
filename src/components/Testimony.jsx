@@ -38,16 +38,7 @@ function Testimony({image}) {
             repellendus earum?
           </p>
         </div>
-        {/* <div className="flex justify-between items-end">
-          <div className="">
-            <div className="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium">
-              <span className="text-green-500 !leading-none">
-                productDetail?.price
-              </span>
-            </div>
-          </div>
-          
-        </div> */}
+      
       </div>
     </div>
   );
