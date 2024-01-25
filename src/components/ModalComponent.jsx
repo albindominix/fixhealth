@@ -14,10 +14,6 @@ export default function ModalComponent() {
   const { enqueueSnackbar } = useSnackbar();
 
 
-  // useEffect(() => {
-  //   setTimeout(() => setIsRecycle(false), 2000);
-  // }, []);
-
   const {
     register,
     handleSubmit,
