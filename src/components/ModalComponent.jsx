@@ -4,11 +4,20 @@ import FormStep1 from "./FormStep1";
 import FormStep2 from "./FormStep2";
 import FormStep3 from "./FormStep3";
 import { useSnackbar } from "notistack";
+import Confetti from "react-confetti";
 export default function ModalComponent() {
   const [showModal, setShowModal] = useState(false);
   const [formStepValue, setFormStepValue] = useState(1);
   const [doctors, setDoctors] = useState([]);
+  const [isRecycle, setIsRecycle] = useState(false);
+
   const { enqueueSnackbar } = useSnackbar();
+
+
+  // useEffect(() => {
+  //   setTimeout(() => setIsRecycle(false), 2000);
+  // }, []);
+
   const {
     register,
     handleSubmit,
@@ -18,6 +27,7 @@ export default function ModalComponent() {
   } = useForm();
 
   const onSubmit = (data) => {
+    setIsRecycle(true)
     setShowModal(false);
     const name = data.doctor
     console.log(data);
@@ -25,6 +35,7 @@ export default function ModalComponent() {
     reset();
     enqueueSnackbar(`Congratulations, your appointment with ${name} has been booked`)
 
+    setTimeout(() => {setIsRecycle(false);console.log('agegweg')}, 3000);
   };
 
   const watchAge = watch("age", false);
@@ -46,8 +57,12 @@ export default function ModalComponent() {
     const body = document.querySelector("body");
     body.style.overflow = showModal ? "hidden" : "auto";
   }, [showModal]);
+
+  const { innerWidth: width, innerHeight: height } = window;
+
   return (
     <>
+       {isRecycle &&<Confetti width={width} height={height} recycle={isRecycle} />}
       <button
         className="text-md bg-blue-700   py-3 px-4 text-white rounded-md"
         type="button"
