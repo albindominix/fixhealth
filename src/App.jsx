@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Routes, Route,HashRouter } from "react-router-
 function App() {
   return (
     <>
-      <HashRouter>
+      <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:city" element={<Home />} />
         </Routes>
-      </HashRouter>
+      </Router>
     </>
   );
 }
