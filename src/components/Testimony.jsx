@@ -9,7 +9,7 @@ function Testimony({image}) {
       <div className="relative flex-shrink-0 bg-slate-50 rounded-3xl overflow-hidden z-1 group">
         {/* <Link className="block" to={`/singleproduct/${productDetail?.id}`}> */}
           <div className=" flex justify-center aspect-w-11 aspect-h-12 w-full h-auto">
-            <div className="relative  flex justify-center h-60 overflow-hidden rounded-xl">
+            <div className="relative scale-[1.1] flex justify-center h-60 overflow-hidden rounded-xl">
               <img
                 className="object-cover tex "
                 src={image}
