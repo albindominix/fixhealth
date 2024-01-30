@@ -1,6 +1,6 @@
 import React from "react";
 
-function Testimony({image}) {
+function Testimony({person}) {
   return (
     <div
       className="relative flex flex-col bg-[#203e4a] shadow p-4 rounded-2xl max-w-[100vw]"
@@ -12,7 +12,7 @@ function Testimony({image}) {
             <div className="relative scale-[1.1] flex justify-center h-60 overflow-hidden rounded-xl">
               <img
                 className="object-cover tex "
-                src={image}
+                src={person.image}
                 alt="product image"
               />
             </div>
@@ -27,15 +27,13 @@ function Testimony({image}) {
             className="text-2xl font-semibold text-white line-clamp-1"
   
           >
-           Rizki Known
+          {person.name}
           </h2>
-          <p className=" text-lg tracking-tight  font-sans text-teal-500">Fullstack Development</p>
+          <p className=" text-lg tracking-tight  font-sans text-teal-500">{person.profession}</p>
             </div>
         
           <p className=" font-normal text-slate-500 mt-1 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            omnis accusantium, nostrum numquam veniam quos animi maiores iste
-            repellendus earum?
+         {person.testimony}
           </p>
         </div>
       

@@ -31,7 +31,7 @@ export default function ModalComponent() {
     reset();
     enqueueSnackbar(`Congratulations, your appointment with ${name} has been booked`)
 
-    setTimeout(() => {setIsRecycle(false);console.log('agegweg')}, 3000);
+    setTimeout(() => {setIsRecycle(false);console.log('agegweg')}, 4000);
   };
 
   const watchAge = watch("age", false);
@@ -143,7 +143,7 @@ export default function ModalComponent() {
                         type="submit"
                         disabled={isSubmitting}
                       >
-                        Save Changes
+                        Arrange My Visit
                       </button>
                     ) : (
                       <button

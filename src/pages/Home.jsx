@@ -7,15 +7,50 @@ import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ModalComponent from "../components/ModalComponent";
-import person1 from '../assets/person1.avif'
-import person2 from '../assets/person2.avif'
-import person3 from '../assets/person4.webp'
-import person4 from '../assets/person3.jpg'
-import person5 from '../assets/person5.jpg'
-
+import person1 from "../assets/person1.avif";
+import person2 from "../assets/person2.avif";
+import person3 from "../assets/person4.webp";
+import person4 from "../assets/person3.jpg";
+import person5 from "../assets/person5.jpg";
+const testimonials = [
+  {
+    name: "Raj T",
+    image: person1,
+    profession: "Office Manager",
+    testimony:
+      "I had become frightened of falling as I struggled with age-related balance issues. Over several months of balance training with Dr. Asha's expertise and encouragement, my stability has measurably improved, granting me the confidence to resume activities like short neighborhood walks independently",
+  },
+  {
+    name: "Abhijith",
+    profession: "Software Engineer",
+    image: person2,
+    testimony:
+      "As an avid runner, landing in physiotherapy for foot problems was upsetting. Dr. Sanjay not only eased my worries but worked diligently to diagnose and treat the pain's root cause with custom orthotics and rehab exercises. His solutions have me running stronger than ever with no pain.Iam really with the treatment",
+  },
+  {
+    name: "Anjali S",
+    profession: "Teacher",
+    image: person3,
+    testimony:
+      "I was afraid I'd never regain full wrist movement after a bad fracture. Under the excellent care of physiotherapist Rohan and his team, they made my recovery smooth and successful. They treated me with expertise and precision and ensured I could meet my goals to return to playing sports pain-free.",
+  },
+  {
+    name: "Suraj",
+    profession: "Retiree",
+    image: person4,
+    testimony:
+      "As I aged, my balance issues made me nervous to walk far or be home alone. After a few months working on balance exercises with [physio name] Dr. Asha, I feel much steadier on my feet. I've regained the confidence to take short walks through my neighborhood regularly without any worries or falls.",
+  },
+  {
+    name: "Deepika",
+    profession: "Accountant",
+    image: person5,
+    testimony:
+      "After struggling with lower back pain for months that severely limited my mobility, I began seeing Dr. Amit for physiotherapy. He carefully listened and designed a personalized treatment plan. After several weeks of stretches, exercises, and guidance on proper movement, I'm walking upright again .",
+  },
+];
 
 function Home() {
-
   const SlideArrowLeft = () => {
     return (
       <div className="bg-white w-9 h-9">
@@ -31,14 +66,13 @@ function Home() {
     );
   };
 
-  
   const SliderArrow = ({ onClick, type, classname }) => {
     return (
       <div
         className={` rounded-full overflow-hidden  cursor-pointer bottom-[-14%] md:bottom-[-10%] ${classname}`}
         style={{
           color: "white",
-          position:'absolute',
+          position: "absolute",
           // bottom: "-10% ",
           left: "unset !important",
           right: type === "prev" ? "70px" : "10px ",
@@ -65,17 +99,26 @@ function Home() {
         style={{
           position: "absolute",
           left: 0,
-          bottom:'-34px',
+          bottom: "-34px",
 
           paddingLeft: "8px",
           textAlign: "left",
         }}
       >
         <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>),
-       customPaging: () => (
-        <div className="bg-teal-600" style={{ height: 8, width: 30,  display: 'inline-block', borderRadius: '10px' }} />
-      ),
+      </div>
+    ),
+    customPaging: () => (
+      <div
+        className="bg-teal-600"
+        style={{
+          height: 8,
+          width: 30,
+          display: "inline-block",
+          borderRadius: "10px",
+        }}
+      />
+    ),
 
     responsive: [
       {
@@ -116,12 +159,12 @@ function Home() {
           Caring<span className="text-blue-500"> Health Services</span>
         </h1>
         <p className="isolate max-w-3xl text-center md:text-xl tracking-tight text-sm  font-sans text-teal-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-          obcaecati dolores vero cum aliquid sint molestias at laborum facilis
-          suscipit laboriosam! Aliquam mollitia neque alias.
+          Restoring mobility, relieving pain, rebuilding strength and function
+          to help patients live fuller, healthier lives through
+          compassionate, and personalized physiotherapy care and treatment.
         </p>
         <div className="flex gap-4 isolate">
-         <ModalComponent/>
+          <ModalComponent />
           <button className="text-md border text-teal-500 border-blue-600 rounded-md py-3 px-4 hover:bg-blue-700 hover:text-white ">
             Download Apps
           </button>
@@ -135,12 +178,9 @@ function Home() {
           </h1>
           {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  px-5 md:px-0"> */}
           <Slider {...settings}>
-            <Testimony image={person1} />
-            <Testimony image={person2} />
-            <Testimony image={person3} />
-            <Testimony image={person4} />
-            <Testimony image={person5} />
-            
+            {testimonials.map((person, index) => (
+              <Testimony key={index} person={person} />
+            ))}
           </Slider>
           {/* </div> */}
         </div>
