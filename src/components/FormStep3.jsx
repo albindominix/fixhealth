@@ -1,8 +1,7 @@
 import React from "react";
 
 function FormStep3({ register, errors, watchAge, doctors = [] }) {
-  console.log(!doctors)
-  console.log(doctors == [],"doctors == [] " )
+ 
 
   return (
     <div>
@@ -50,7 +49,7 @@ function FormStep3({ register, errors, watchAge, doctors = [] }) {
 
       <div className="relative inline-flex flex-col gap-3 mb-6 w-full">
         <span className="text-gray-700">Doctors Available</span>
-       {  doctors.length<1?<div>No Doctors available in your area</div>: <div>
+       {  doctors.length<1?<div className="p-3 border border-red-600 rounded-md">No Doctors available in your area</div>: <div>
           <svg
             className="w-2 h-2 absolute  right-0 m-4 pointer-events-none"
             xmlns="http://www.w3.org/2000/svg"
