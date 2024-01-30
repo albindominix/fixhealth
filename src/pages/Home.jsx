@@ -25,8 +25,8 @@ const testimonials = [
     profession: "Software Engineer",
     image: person2,
     testimony:
-      "As an avid runner, landing in physiotherapy for foot problems was upsetting. Dr. Sanjay not only eased my worries but worked diligently to diagnose and treat the pain's root cause with custom orthotics and rehab exercises. His solutions have me running stronger than ever with no pain.Iam really with the treatment",
-  },
+          "As I aged, my balance issues made me nervous to walk far or be home alone. After a few months working on balance exercises with my physio Dr. Asha, I feel much steadier on my feet. I've regained the confidence to take short walks through my neighborhood regularly without any worries or falls.",
+ },
   {
     name: "Anjali S",
     profession: "Teacher",
@@ -39,7 +39,7 @@ const testimonials = [
     profession: "Retiree",
     image: person4,
     testimony:
-      "As I aged, my balance issues made me nervous to walk far or be home alone. After a few months working on balance exercises with [physio name] Dr. Asha, I feel much steadier on my feet. I've regained the confidence to take short walks through my neighborhood regularly without any worries or falls.",
+      "As I aged, my balance issues made me nervous to walk far or be home alone. After a few months working on balance exercises with with my physio Dr. Asha, I feel much steadier on my feet. I've regained the confidence to take short walks through my neighborhood regularly without any worries or falls.",
   },
   {
     name: "Deepika",

@@ -5,6 +5,7 @@ import FormStep2 from "./FormStep2";
 import FormStep3 from "./FormStep3";
 import { useSnackbar } from "notistack";
 import Confetti from "react-confetti";
+import { redirect, useNavigate } from "react-router-dom";
 export default function ModalComponent() {
   const [showModal, setShowModal] = useState(false);
   const [formStepValue, setFormStepValue] = useState(1);
@@ -12,7 +13,7 @@ export default function ModalComponent() {
   const [isRecycle, setIsRecycle] = useState(false);
 
   const { enqueueSnackbar } = useSnackbar();
-
+  const navigate = useNavigate();
 
   const {
     register,
@@ -23,15 +24,20 @@ export default function ModalComponent() {
   } = useForm();
 
   const onSubmit = (data) => {
-    setIsRecycle(true)
+    setIsRecycle(true);
     setShowModal(false);
-    const name = data.doctor
+    const name = data.doctor;
     console.log(data);
     setFormStepValue(1);
     reset();
-    enqueueSnackbar(`Congratulations, your appointment with ${name} has been booked`)
+    enqueueSnackbar(
+      `Congratulations, your appointment with ${name} has been booked`
+    );
 
-    setTimeout(() => {setIsRecycle(false);console.log('agegweg')}, 4000);
+    setTimeout(() => {
+      setIsRecycle(false);
+      console.log("agegweg");
+    }, 4000);
   };
 
   const watchAge = watch("age", false);
@@ -48,17 +54,25 @@ export default function ModalComponent() {
       })
       .catch((err) => console.log(err));
   }, [watchCity]);
-
-  useEffect(() => {// used so that on opeing modal the window wont be scrollable
+console.log(doctors)
+  useEffect(() => {
+    // used so that on opeing modal the window wont be scrollable
     const body = document.querySelector("body");
     body.style.overflow = showModal ? "hidden" : "auto";
   }, [showModal]);
 
   const { innerWidth: width, innerHeight: height } = window;
-
+  function returnToHome() {
+    setShowModal(false);
+    setFormStepValue(1);
+    navigate("/");
+    reset();
+  }
   return (
     <>
-       {isRecycle &&<Confetti width={width} height={height} recycle={isRecycle} />}
+      {isRecycle && (
+        <Confetti width={width} height={height} recycle={isRecycle} />
+      )}
       <button
         className="text-md bg-blue-700   py-3 px-4 text-white rounded-md"
         type="button"
@@ -137,9 +151,15 @@ export default function ModalComponent() {
                         Prev
                       </button>
                     )}
-                    {formStepValue == 3 ? (
+                    {formStepValue == 3 &&  doctors.length<1 ? (
+                      <button className=" cursor-pointer bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" onClick={returnToHome}>
+                        Go To Home Page
+                      </button>
+                    ) : formStepValue == 3 ? (
                       <button
-                        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        className={`${
+                          !isValid ? "bg-emerald-100" : "bg-emerald-500"
+                        }  bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
                         type="submit"
                         disabled={isSubmitting}
                       >
@@ -147,8 +167,9 @@ export default function ModalComponent() {
                       </button>
                     ) : (
                       <button
-                        className={`${!isValid ? "bg-emerald-100" : "bg-emerald-500"}  text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 `}
-                      
+                        className={`${
+                          !isValid ? "bg-emerald-100" : "bg-emerald-500"
+                        }  text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 `}
                         type="button"
                         disabled={!isValid}
                         onClick={() => {
