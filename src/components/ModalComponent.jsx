@@ -6,6 +6,7 @@ import FormStep3 from "./FormStep3";
 import { useSnackbar } from "notistack";
 import Confetti from "react-confetti";
 import { redirect, useNavigate } from "react-router-dom";
+const API = import.meta.env.VITE_MOCK_API
 export default function ModalComponent() {
   const [showModal, setShowModal] = useState(false);
   const [formStepValue, setFormStepValue] = useState(1);
@@ -22,7 +23,6 @@ export default function ModalComponent() {
     reset,
     formState: { errors, isSubmitting, isValid },
   } = useForm();
-
   const onSubmit = (data) => {
     setIsRecycle(true);
     setShowModal(false);
@@ -36,7 +36,6 @@ export default function ModalComponent() {
 
     setTimeout(() => {
       setIsRecycle(false);
-      console.log("agegweg");
     }, 4000);
   };
 
@@ -44,7 +43,7 @@ export default function ModalComponent() {
   const watchCity = watch("city", "");
 
   useEffect(() => {
-    fetch("https://mocki.io/v1/a56fec66-1cc8-46a1-b84b-0e76eb481b05")
+    fetch(API)
       .then((res) => res.json())
       .then((data) => {
         const result = data.doctors.filter((value) =>
