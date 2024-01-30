@@ -52,7 +52,6 @@ export default function ModalComponent() {
       })
       .catch((err) => console.log(err));
   }, [watchCity]);
-console.log(doctors)
   useEffect(() => {
     // used so that on opeing modal the window wont be scrollable
     const body = document.querySelector("body");
