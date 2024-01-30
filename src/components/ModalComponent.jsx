@@ -27,7 +27,6 @@ export default function ModalComponent() {
     setIsRecycle(true);
     setShowModal(false);
     const name = data.doctor;
-    console.log(data);
     setFormStepValue(1);
     reset();
     enqueueSnackbar(
